@@ -1,16 +1,16 @@
 <template>
   <main>
-    <section id="songs" class="container">
+    <section id="albums" class="container">
       <div
-        class="song-card-container"
-        v-for="(song, index) in songs"
+        class="album-card-container"
+        v-for="(album, index) in albums"
         :key="index"
       >
-        <SongCard
-          :title="song.title"
-          :poster="song.poster"
-          :author="song.author"
-          :year="song.year"
+        <AlbumCard
+          :title="album.title"
+          :poster="album.poster"
+          :author="album.author"
+          :year="album.year"
         />
       </div>
     </section>
@@ -18,40 +18,40 @@
 </template>
 
 <script>
-import SongCard from "./SongCard.vue";
+import AlbumCard from "./AlbumCard.vue";
 import axios from "axios";
 export default {
   name: "Main",
   components: {
-    SongCard,
+    AlbumCard,
   },
   data() {
     return {
-      songs: [],
+      albums: [],
     };
   },
   methods: {
-    getSong() {
+    fetchAlbums() {
       axios
         .get("https://flynn.boolean.careers/exercises/api/array/music")
         .then((res) => {
-          this.songs = res.data.response;
+          this.albums = res.data.response;
         });
     },
   },
   created() {
-    this.getSong();
+    this.fetchAlbums();
   },
 };
 </script>
 
 <style scoped lang="scss">
-#songs {
+#albums {
   display: flex;
   flex-wrap: wrap;
   padding: 50px 0;
 }
-.song-card-container {
+.album-card-container {
   width: calc(100% / 5);
 }
 </style>

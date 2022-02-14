@@ -1,5 +1,5 @@
 <template>
-  <div class="song-card">
+  <div class="album-card">
     <img :src="poster" :alt="title" class="img-fluid" />
     <h5>{{ title }}</h5>
     <div class="description">
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "SongCard",
+  name: "AlbumCard",
   props: ["poster", "title", "author", "year"],
 };
 </script>
@@ -22,7 +22,7 @@ export default {
   color: white;
 }
 
-.song-card {
+.album-card {
   color: white;
   background-color: $main_color;
   display: inline-block;
