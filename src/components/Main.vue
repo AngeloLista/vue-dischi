@@ -3,7 +3,7 @@
     <section id="albums" class="container">
       <div
         class="album-card-container"
-        v-for="(album, index) in albums"
+        v-for="(album, index) in filteredAlbums"
         :key="index"
       >
         <AlbumCard
@@ -31,6 +31,14 @@ export default {
     return {
       albums: [],
     };
+  },
+  computed: {
+    filteredAlbums() {
+      if (!this.selectedGenre) return this.albums;
+      return this.albums.filter((album) => {
+        return album.genre === this.selectedGenre;
+      });
+    },
   },
   methods: {
     fetchAlbums() {
