@@ -2,7 +2,7 @@
   <header class="d-flex justify-content-between align-items-center">
     <img src="../assets/img/spotify-logo.png" alt="" />
     <div>
-      <Select :options="genres" />
+      <Select :options="genres" @change-option="selectedGenres" />
     </div>
   </header>
 </template>
@@ -15,6 +15,11 @@ export default {
     Select,
   },
   props: ["genres"],
+  methods: {
+    selectedGenres(selectedOption) {
+      this.$emit("selected-genre", selectedOption);
+    },
+  },
 };
 </script>
 

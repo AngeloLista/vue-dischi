@@ -20,8 +20,10 @@
 <script>
 import AlbumCard from "./AlbumCard.vue";
 import axios from "axios";
+
 export default {
   name: "Main",
+  props: ["selectedGenre"],
   components: {
     AlbumCard,
   },
