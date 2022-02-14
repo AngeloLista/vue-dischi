@@ -1,6 +1,8 @@
 <template>
   <select v-model="selectedOption" class="mx-3" @change="changeOption">
-    <option value="">Select an option</option>
+    <option :placeholder="placeholder" value="">
+      {{ placeholder || "Select an option" }}
+    </option>
     <option v-for="(option, index) in options" :key="index">
       {{ option }}
     </option>
@@ -10,7 +12,7 @@
 <script>
 export default {
   name: "Select",
-  props: ["options"],
+  props: ["placeholder", "options"],
   data() {
     return {
       selectedOption: "",

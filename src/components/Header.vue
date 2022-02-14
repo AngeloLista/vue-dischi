@@ -2,7 +2,11 @@
   <header class="d-flex justify-content-between align-items-center">
     <img src="../assets/img/spotify-logo.png" alt="" />
     <div>
-      <Select :options="genres" @change-option="selectedGenres" />
+      <Select
+        placeholder="Seleziona un genere"
+        :options="genres"
+        @change-option="selectedGenres"
+      />
     </div>
   </header>
 </template>
