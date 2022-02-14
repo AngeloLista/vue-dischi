@@ -40,7 +40,7 @@ export default {
           const genres = [];
           this.albums.forEach((album) => {
             const genre = album.genre;
-            genres.push(genre);
+            if (!genres.includes(genre)) genres.push(genre);
           });
         });
     },
