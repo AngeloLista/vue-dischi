@@ -42,6 +42,8 @@ export default {
             const genre = album.genre;
             if (!genres.includes(genre)) genres.push(genre);
           });
+
+          this.$emit("genres-ready", genres);
         });
     },
   },

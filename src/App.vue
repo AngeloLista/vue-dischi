@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header />
-    <Main />
+    <Header :genres="genres" />
+    <Main @genres-ready="setGenres" />
   </div>
 </template>
 
@@ -11,7 +11,17 @@ import Main from "./components/Main.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+      genres: [],
+    };
+  },
   components: { Header, Main },
+  methods: {
+    setGenres(genres) {
+      this.genres = genres;
+    },
+  },
 };
 </script>
 
