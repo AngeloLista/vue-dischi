@@ -2,7 +2,7 @@
   <header class="d-flex justify-content-between align-items-center">
     <img src="../assets/img/spotify-logo.png" alt="" />
     <div>
-      <Select />
+      <Select :options="genres" />
     </div>
   </header>
 </template>
