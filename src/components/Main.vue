@@ -36,6 +36,12 @@ export default {
         .get("https://flynn.boolean.careers/exercises/api/array/music")
         .then((res) => {
           this.albums = res.data.response;
+
+          const genres = [];
+          this.albums.forEach((album) => {
+            const genre = album.genre;
+            genres.push(genre);
+          });
         });
     },
   },
